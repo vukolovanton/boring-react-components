@@ -12,6 +12,14 @@ const steps = [
   {
     title: 'Third thing',
     description: 'Something to do'
+  },
+  {
+    title: 'Last child',
+    description: 'Blah blah blah'
+  },
+  {
+    title: 'Wow',
+    description: 'Is it work?'
   }
 ];
 
@@ -20,7 +28,7 @@ function App() {
     <div>
       <Stepper
         steps={steps}
-        options={{ activeStepNumber: 2 }}
+        options={{ completedSteps: [0] }}
       />
     </div>
   );

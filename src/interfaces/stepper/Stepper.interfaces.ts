@@ -1,7 +1,13 @@
 export interface StepperProps {
   steps: Step[];
   options: {
-    activeStepNumber: number,
+    completedSteps: number[],
+    variant?: STEPPER_VARIANT.FULL | STEPPER_VARIANT.MINIFIED,
+  },
+  styles?: {
+    circleColor?: string,
+    circleSize?: string,
+    lineColor?: string,
   }
 }
 
@@ -10,3 +16,7 @@ export interface Step {
   description: string;
 }
 
+export enum STEPPER_VARIANT {
+  FULL = 'full',
+  MINIFIED = 'minified',
+}
