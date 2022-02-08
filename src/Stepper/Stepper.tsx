@@ -5,22 +5,31 @@ import style from './Stepper.module.css';
 
 const Stepper: FC<StepperProps> = ({ steps, options, styles = {} }) => {
   const { completedSteps, variant = STEPPER_VARIANT.FULL } = options;
-  const { circleSize = "3rem", circleColor = "pink", lineColor = "grey" } = styles;
+  const { circleSize = "3rem", circleColor = "pink", lineColor = "PaleVioletRed" } = styles;
 
   const computedProperties = useMemo(() => {
     return {
       "--circle-size": circleSize,
-      "--line-color": lineColor,
       "--circle-color": circleColor,
       "--spacing": "clamp(0.25rem, 2vw, 0.5rem)",
     }
   }, []) as React.CSSProperties;
 
+  function getLineColor(i: number) {
+    if (completedSteps.includes(i)) {
+      return { "--line-color": lineColor } as React.CSSProperties;
+    } else return { "--line-color": "lightgrey" } as React.CSSProperties;
+  }
+
   return (
     <ol className={style.stepper} style={computedProperties}>
       {
         steps.map((step, index) => (
-          <li className={variant === STEPPER_VARIANT.FULL ? style.item : style.itemMinified} key={step.title}>
+          <li
+            className={variant === STEPPER_VARIANT.FULL ? style.item : style.itemMinified}
+            key={step.title}
+            style={getLineColor(index)}
+          >
             <h4
               className={style.circle}
               style={{

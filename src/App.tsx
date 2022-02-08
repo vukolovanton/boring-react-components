@@ -28,7 +28,7 @@ function App() {
     <div>
       <Stepper
         steps={steps}
-        options={{ completedSteps: [0] }}
+        options={{ completedSteps: [0, 1] }}
       />
     </div>
   );

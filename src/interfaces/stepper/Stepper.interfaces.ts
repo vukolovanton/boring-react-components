@@ -20,3 +20,4 @@ export enum STEPPER_VARIANT {
   FULL = 'full',
   MINIFIED = 'minified',
 }
+
