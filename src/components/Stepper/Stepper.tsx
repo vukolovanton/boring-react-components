@@ -13,7 +13,7 @@ const Stepper: FC<StepperProps> = ({ steps, options, styles = {} }) => {
 		lineColor = 'PaleVioletRed',
 	} = styles;
 
-	const computedProperties = useMemo(() => {
+	const cssVariables = useMemo(() => {
 		return {
 			'--circle-size': circleSize,
 			'--circle-color': circleColor,
@@ -28,7 +28,7 @@ const Stepper: FC<StepperProps> = ({ steps, options, styles = {} }) => {
 	}
 
 	return (
-		<ol className={style.stepper} style={computedProperties}>
+		<ol className={style.stepper} style={cssVariables}>
 			{steps.map((step, index) => (
 				<li
 					className={

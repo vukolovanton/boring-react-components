@@ -1,5 +1,6 @@
 import { Stepper } from '@/components/Stepper';
 import { SplitButton } from '@/components/SplitButton';
+import { SplitButtonItems } from '@/interfaces/splitButton/SplitButton.interfaces';
 
 const steps = [
 	{
@@ -24,11 +25,41 @@ const steps = [
 	},
 ];
 
+const cart = (
+	<svg aria-hidden="true" viewBox="0 0 24 24" fill="hsl(220 75% 50%)">
+		<path d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
+	</svg>
+);
+
+const save = (
+	<svg aria-hidden="true" viewBox="0 0 24 24" fill="hsl(220 75% 50%)">
+		<path d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z" />
+	</svg>
+);
+
+const splitButtonItems: SplitButtonItems[] = [
+	{
+		title: 'Quick Pay',
+		icon: cart,
+	},
+	{
+		title: 'Save for later',
+		icon: save,
+	},
+];
+
 function App() {
 	return (
 		<div>
 			<Stepper steps={steps} options={{ completedSteps: [0, 1] }} />
-			<SplitButton />
+			<SplitButton
+				items={splitButtonItems}
+				styles={{
+					backgroundColor: 'hsl(220 75% 50%)',
+					borderColor: 'hsl(220 50% 75%)',
+					textColor: 'hsl(220 90% 98%)',
+				}}
+			/>
 		</div>
 	);
 }
