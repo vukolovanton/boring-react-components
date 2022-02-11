@@ -41,10 +41,12 @@ const splitButtonItems: SplitButtonItems[] = [
 	{
 		title: 'Quick Pay',
 		icon: cart,
+		description: 'Some long explanation what this option do',
 	},
 	{
 		title: 'Save for later',
 		icon: save,
+		description: 'another long useless text with some thoughts',
 	},
 ];
 
@@ -58,6 +60,8 @@ function App() {
 					backgroundColor: 'hsl(220 75% 50%)',
 					borderColor: 'hsl(220 50% 75%)',
 					textColor: 'hsl(220 90% 98%)',
+					font: '14px Helvetica bold',
+					descriptionFont: '10px Helvetica bold',
 				}}
 			/>
 		</div>

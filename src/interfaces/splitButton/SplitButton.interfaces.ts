@@ -8,6 +8,8 @@ export interface SplitButtonProps {
 		textColor: string;
 		radius?: string;
 		hoverShadow?: string;
+		font: string;
+		descriptionFont?: string;
 	};
 }
 

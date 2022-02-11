@@ -4,11 +4,20 @@ import style from './SplitButton.module.scss';
 
 const SplitButton: React.FC<SplitButtonProps> = React.memo(
 	({ styles, items }) => {
-		const { backgroundColor, borderColor, textColor, radius, hoverShadow } =
-			styles;
+		const {
+			backgroundColor,
+			borderColor,
+			textColor,
+			radius,
+			hoverShadow,
+			font,
+			descriptionFont,
+		} = styles;
 
 		const cssVariables = useMemo(() => {
 			return {
+				'--font': font,
+				'--description-font': descriptionFont,
 				'--background-color': backgroundColor,
 				'--border-color': borderColor,
 				'--text-color': textColor,
@@ -28,18 +37,22 @@ const SplitButton: React.FC<SplitButtonProps> = React.memo(
 
 		return (
 			<div className={style['split-button']} style={cssVariables}>
-				<button>View Cart</button>
+				<button className={style['main-button']}>View Cart</button>
 				<details ref={detailsRef} className={style['details']}>
 					<summary className={style['summary']}></summary>
 
 					<ul className={style['popup']}>
 						{items.map((item) => (
-							<li key={item.title}>
+							<li key={item.title} className={style['popup-item']}>
 								<button onClick={handleCloseDetailsClick}>
 									{item.icon}
 									{item.title}
 								</button>
-								<span>{item.description}</span>
+								{item.description && (
+									<span className={style['description']}>
+										{item.description}
+									</span>
+								)}
 							</li>
 						))}
 					</ul>

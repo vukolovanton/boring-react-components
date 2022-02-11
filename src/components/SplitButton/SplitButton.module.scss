@@ -29,9 +29,7 @@
 		gap: 1ch;
 		white-space: nowrap;
 
-		font-family: inherit;
-		font-size: inherit;
-		font-weight: 500;
+		font: var(--font);
 
 		padding-block: 1.25ch;
 		padding-inline: 2.5ch;
@@ -47,6 +45,10 @@
 		&:active {
 			background: border-box
 				radial-gradient(var(--background-color), rgba(0, 0, 0, 0.1));
+		}
+
+		&.main-button {
+			border-inline-end: 1px solid var(--border-color);
 		}
 	}
 }
@@ -68,27 +70,51 @@
 	flex-direction: column;
 	font-size: 0.9em;
 
-	& button {
-		width: 100%;
-		background: var(--text-color);
-		color: var(--background-color);
-		border-radius: var(--radius);
+	box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 
+	& .description {
+		font: var(--description-font);
+		opacity: 0.7;
+		padding-inline: 3.5ch 0.5ch;
+		padding-block-end: 2ch;
+		display: inline-flex;
+	}
+
+	& .popup-item {
+		cursor: pointer;
+		border-radius: var(--radius);
 		&:hover {
 			box-shadow: none;
 			background-color: var(--background-color);
 			color: var(--text-color);
 
-			& > svg {
-				fill: var(--text-color);
+			& > button {
+				box-shadow: none;
+				background-color: var(--background-color);
+				color: var(--text-color);
+
+				& > svg {
+					fill: var(--text-color);
+				}
 			}
 		}
+	}
+
+	& button {
+		width: 100%;
+		background: var(--text-color);
+		color: var(--background-color);
+		border-radius: var(--radius);
 	}
 }
 
 .summary {
 	list-style: none;
 	height: 100%;
+
+	&::-webkit-details-marker {
+		display: none;
+	}
 
 	&:focus {
 		outline: none;
@@ -98,21 +124,20 @@
 		content: '';
 		cursor: pointer;
 
+		-webkit-transition: transform 0.2s ease-in-out;
+		-webkit-transform: all 0.2s ease-in-out;
+		-webkit-transition: 500ms;
+		transition: transform 0.2s ease-in-out;
+
 		display: block;
 		width: 2rem;
 		height: inherit;
-
-		border: none;
-		border-inline-start: 1px solid var(--border-color);
-		border-radius: 0 var(--radius) var(--radius) 0;
+		transform: 0;
 
 		background-repeat: no-repeat;
 		background-position: 0;
 		background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' aria-hidden='true' fill='white' viewBox='0 0 20 20'%3E%3Cpath d='M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z' /%3E%3C/svg%3E");
 	}
-}
-.summary::-webkit-details-marker {
-	display: none;
 }
 
 .details {
@@ -127,10 +152,8 @@
 
 	&[open] {
 		& .summary::after {
-			transform: rotate(0.5turn);
-			border-inline-start: none;
-			border-inline-end: 1px solid var(--border-color);
-			border-radius: var(--radius) 0 0 var(--radius);
+			transform: rotate(180deg);
+			-webkit-transform: rotate(180deg);
 		}
 	}
 }
