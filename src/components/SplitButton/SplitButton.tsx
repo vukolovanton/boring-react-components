@@ -43,8 +43,12 @@ const SplitButton: React.FC<SplitButtonProps> = React.memo(
 
 					<ul className={style['popup']}>
 						{items.map((item) => (
-							<li key={item.title} className={style['popup-item']}>
-								<button onClick={handleCloseDetailsClick}>
+							<li
+								key={item.title}
+								className={style['popup-item']}
+								onClick={handleCloseDetailsClick}
+							>
+								<button>
 									{item.icon}
 									{item.title}
 								</button>

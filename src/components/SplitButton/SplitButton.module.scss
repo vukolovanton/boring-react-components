@@ -69,7 +69,6 @@
 	display: flex;
 	flex-direction: column;
 	font-size: 0.9em;
-
 	box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 
 	& .description {
@@ -124,15 +123,16 @@
 		content: '';
 		cursor: pointer;
 
-		-webkit-transition: transform 0.2s ease-in-out;
-		-webkit-transform: all 0.2s ease-in-out;
-		-webkit-transition: 500ms;
-		transition: transform 0.2s ease-in-out;
+		-webkit-transform: rotate(0deg);
+
+		-ms-transform: rotate(0deg);
+
+		transform: rotate(0deg);
+		transition: transform 200ms ease-in-out;
 
 		display: block;
 		width: 2rem;
 		height: inherit;
-		transform: 0;
 
 		background-repeat: no-repeat;
 		background-position: 0;
@@ -153,7 +153,6 @@
 	&[open] {
 		& .summary::after {
 			transform: rotate(180deg);
-			-webkit-transform: rotate(180deg);
 		}
 	}
 }
