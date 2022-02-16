@@ -1,6 +1,7 @@
 import { Stepper } from '@/components/Stepper';
 import { SplitButton } from '@/components/SplitButton';
 import { SplitButtonItems } from '@/interfaces/splitButton/SplitButton.interfaces';
+import { Spinner } from './components/Spinner';
 
 const steps = [
 	{
@@ -64,6 +65,7 @@ function App() {
 					descriptionFont: '10px Helvetica bold',
 				}}
 			/>
+			<Spinner />
 		</div>
 	);
 }
