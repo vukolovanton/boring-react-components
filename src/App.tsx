@@ -7,7 +7,7 @@ import { ProgressBar } from './components/ProgressBar';
 const steps = [
 	{
 		title: 'First title',
-		description: 'Some first description',
+		// description: 'Some first description',
 	},
 	{
 		title: 'Second item',
@@ -19,11 +19,11 @@ const steps = [
 	},
 	{
 		title: 'Last child',
-		description: 'Blah blah blah',
+		// description: 'Blah blah blah',
 	},
 	{
 		title: 'Wow',
-		description: 'Is it work?',
+		// description: 'Is it work?',
 	},
 ];
 

@@ -6,11 +6,16 @@ import {
 import style from './Stepper.module.css';
 
 const Stepper: FC<StepperProps> = ({ steps, options, styles = {} }) => {
-	const { completedSteps, variant = STEPPER_VARIANT.FULL } = options;
+	const {
+		completedSteps,
+		variant = STEPPER_VARIANT.FULL,
+		square = false,
+	} = options;
 	const {
 		circleSize = '3rem',
 		circleColor = 'pink',
 		lineColor = 'PaleVioletRed',
+		shadowSize = '5px',
 	} = styles;
 
 	const cssVariables = useMemo(() => {
@@ -18,6 +23,8 @@ const Stepper: FC<StepperProps> = ({ steps, options, styles = {} }) => {
 			'--circle-size': circleSize,
 			'--circle-color': circleColor,
 			'--spacing': 'clamp(0.25rem, 2vw, 0.5rem)',
+			'--shadow-size': shadowSize,
+			'--radius': square ? '0' : '50%',
 		};
 	}, []) as React.CSSProperties;
 
@@ -39,16 +46,49 @@ const Stepper: FC<StepperProps> = ({ steps, options, styles = {} }) => {
 				>
 					<h4
 						className={style.circle}
+						// Todo: make helper function
 						style={{
-							opacity: completedSteps.includes(index) ? 1 : 0.5,
+							backgroundColor: completedSteps.includes(index)
+								? circleColor
+								: 'transparent',
+							boxShadow: completedSteps.includes(index)
+								? `${shadowSize} ${shadowSize} 0px 0px rgba(0, 0, 0, 0.75)`
+								: 'none',
 						}}
 					>
 						{index + 1}
 					</h4>
-					<h3 className={style.title}>{step.title}</h3>
-					{variant === STEPPER_VARIANT.FULL ? (
-						<p className={style.desc}>{step.description}</p>
-					) : null}
+					{/* Todo: adjust elements height */}
+					<div
+						className={style.descriptionBox}
+						style={{
+							backgroundColor: completedSteps.includes(index)
+								? 'antiquewhite'
+								: 'transparent',
+							boxShadow: completedSteps.includes(index)
+								? `${shadowSize} ${shadowSize} 0px 0px rgba(0, 0, 0, 0.75)`
+								: 'none',
+						}}
+					>
+						<h3
+							className={style.title}
+							style={{
+								marginBottom:
+									variant === STEPPER_VARIANT.FULL && step.description
+										? '0.5rem'
+										: '0',
+								borderBottom:
+									variant === STEPPER_VARIANT.FULL && step.description
+										? `2px solid black`
+										: 'none',
+							}}
+						>
+							{step.title}
+						</h3>
+						{variant === STEPPER_VARIANT.FULL && step.description && (
+							<p className={style.desc}>{step.description}</p>
+						)}
+					</div>
 				</li>
 			))}
 		</ol>
