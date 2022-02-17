@@ -21,9 +21,10 @@
 		"jsx": "react-jsx",
 		"sourceMap": true,
 		"typeRoots": ["./src/@types", "./node_modules/@types"],
-		"outDir": "lib/boring-react-components",
+		"outDir": "dist/useless-react-components",
+		"declaration": true,
 		"baseUrl": "."
 	},
 	"include": ["src", "declaration.d.ts"],
-	"exclude": ["node_modules", "lib"]
+	"exclude": ["node_modules", "dist"]
 }
