@@ -28,13 +28,13 @@ const steps = [
 ];
 
 const cart = (
-	<svg aria-hidden="true" viewBox="0 0 24 24" fill="hsl(220 75% 50%)">
+	<svg aria-hidden="true" viewBox="0 0 24 24" fill="black">
 		<path d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
 	</svg>
 );
 
 const save = (
-	<svg aria-hidden="true" viewBox="0 0 24 24" fill="hsl(220 75% 50%)">
+	<svg aria-hidden="true" viewBox="0 0 24 24" fill="black">
 		<path d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z" />
 	</svg>
 );
@@ -59,11 +59,11 @@ function App() {
 			<SplitButton
 				items={splitButtonItems}
 				styles={{
-					backgroundColor: 'hsl(220 75% 50%)',
-					borderColor: 'hsl(220 50% 75%)',
-					textColor: 'hsl(220 90% 98%)',
-					font: '14px Helvetica bold',
-					descriptionFont: '10px Helvetica bold',
+					backgroundColor: '#d97c1e',
+					borderColor: 'black',
+					textColor: 'black',
+					font: '14px Helvetica',
+					descriptionFont: '10px Helvetica',
 				}}
 			/>
 			<Spinner
@@ -72,7 +72,14 @@ function App() {
 					size: '12px',
 				}}
 			/>
-			<ProgressBar />
+			<ProgressBar
+				styles={{
+					color: '#24ad37',
+					backgroundColor: 'rgba(0, 0, 0, 0.1)',
+					width: '20%',
+					speed: '3s',
+				}}
+			/>
 		</div>
 	);
 }

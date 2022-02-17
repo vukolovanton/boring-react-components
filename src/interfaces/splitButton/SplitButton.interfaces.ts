@@ -6,10 +6,9 @@ export interface SplitButtonProps {
 		backgroundColor: string;
 		borderColor: string;
 		textColor: string;
-		radius?: string;
-		hoverShadow?: string;
 		font: string;
 		descriptionFont?: string;
+		shadowSize?: string;
 	};
 }
 

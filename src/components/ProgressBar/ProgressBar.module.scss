@@ -2,9 +2,9 @@
 	position: relative;
 	display: block;
 	padding: 5px;
-	border-radius: 30px;
 	background: var(--background-color);
-	box-shadow: inset 1px 2px rgba(0, 0, 0, 0.25), 0 1px rgba(255, 255, 255, 0.8);
+	box-shadow: inset 1px 2px rgba(0, 0, 0, 0.25), 0 1px rgba(255, 255, 255, 0.8),
+		3px 3px 0 0 black;
 
 	& span {
 		width: var(--width);
@@ -12,11 +12,11 @@
 		display: inline-block;
 		vertical-align: middle;
 		height: 20px;
-		border-radius: 10px;
 		overflow: hidden;
 		background-color: var(--color);
 		background-size: 100%;
-		// background-image: linear-gradient(to bottom, red, blue);
+		box-shadow: inset 1px 2px rgba(0, 0, 0, 0.25),
+			0 1px rgba(255, 255, 255, 0.8);
 		animation: progress-bar var(--speed) infinite ease-in-out;
 
 		&::after {

@@ -1,14 +1,23 @@
 .split-button {
 	display: inline-flex;
-	border-radius: var(--radius);
+	position: relative;
+
 	background: var(--background-color);
 	color: var(--text-color);
 	fill: var(--text-color);
-	position: relative;
+	border: 1px solid var(--border-color);
 
 	touch-action: manipulation;
 	user-select: none;
 	-webkit-tap-highlight-color: transparent;
+
+	box-shadow: var(--shadow-size) var(--shadow-size) 0px 0px rgba(0, 0, 0, 0.75);
+	transition: box-shadow 0.1s ease;
+
+	&:hover {
+		box-shadow: calc(var(--shadow-size) / 2) calc(var(--shadow-size) / 2) 0px
+			0px rgba(0, 0, 0, 0.75);
+	}
 
 	& svg {
 		inline-size: 2ch;
@@ -38,10 +47,6 @@
 		outline-color: var(--background-color);
 		outline-offset: -5px;
 
-		&:is(:hover, :focus-visible) {
-			box-shadow: var(--hover-shadow);
-		}
-
 		&:active {
 			background: border-box
 				radial-gradient(var(--background-color), rgba(0, 0, 0, 0.1));
@@ -60,50 +65,50 @@
 	inset-inline-start: 75%;
 
 	list-style-type: none;
-	background: var(--text-color);
-	color: var(--background-color);
+	background: var(--background-color);
+	color: var(--text-color);
 	padding-inline: 0;
 	padding-block: 0.5ch;
-	border-radius: var(--radius);
 	overflow: hidden;
 	display: flex;
 	flex-direction: column;
 	font-size: 0.9em;
-	box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+	box-shadow: calc(var(--shadow-size) / 2) calc(var(--shadow-size) / 2) 0px 0px
+		rgba(0, 0, 0, 0.75);
+
+	& button {
+		padding-block: 0;
+		padding-inline: 0;
+	}
 
 	& .description {
 		font: var(--description-font);
 		opacity: 0.7;
-		padding-inline: 3.5ch 0.5ch;
-		padding-block-end: 2ch;
 		display: inline-flex;
 	}
 
 	& .popup-item {
 		cursor: pointer;
-		border-radius: var(--radius);
+		padding-block: 1.25ch;
+		padding-inline: 2.5ch;
+
+		&:not(:last-child) {
+			border-bottom: 1px solid black;
+		}
+
 		&:hover {
-			box-shadow: none;
-			background-color: var(--background-color);
-			color: var(--text-color);
+			background-color: var(--text-color);
+			color: var(--background-color);
 
 			& > button {
-				box-shadow: none;
-				background-color: var(--background-color);
-				color: var(--text-color);
+				background-color: var(--text-color);
+				color: var(--background-color);
 
 				& > svg {
-					fill: var(--text-color);
+					fill: var(--background-color);
 				}
 			}
 		}
-	}
-
-	& button {
-		width: 100%;
-		background: var(--text-color);
-		color: var(--background-color);
-		border-radius: var(--radius);
 	}
 }
 
@@ -124,9 +129,7 @@
 		cursor: pointer;
 
 		-webkit-transform: rotate(0deg);
-
 		-ms-transform: rotate(0deg);
-
 		transform: rotate(0deg);
 		transition: transform 200ms ease-in-out;
 
@@ -136,14 +139,13 @@
 
 		background-repeat: no-repeat;
 		background-position: 0;
-		background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' aria-hidden='true' fill='white' viewBox='0 0 20 20'%3E%3Cpath d='M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z' /%3E%3C/svg%3E");
+		background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' aria-hidden='true' fill='black' viewBox='0 0 20 20'%3E%3Cpath d='M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z' /%3E%3C/svg%3E");
 	}
 }
 
 .details {
 	& .summary {
 		cursor: pointer;
-		border-radius: 0 var(--radius) var(--radius) 0;
 
 		&:hover {
 			box-shadow: var(--hover-shadow);

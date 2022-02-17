@@ -4,7 +4,7 @@ import style from './ProgressBar.module.scss';
 
 const ProgressBar: React.FC<ProgressBarProps> = ({ styles = {} }) => {
 	const {
-		color = '#ed5e42',
+		color = '#24ad37',
 		backgroundColor = 'rgba(0, 0, 0, 0.1)',
 		width = '20%',
 		speed = '3s',

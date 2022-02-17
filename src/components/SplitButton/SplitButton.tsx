@@ -8,10 +8,9 @@ const SplitButton: React.FC<SplitButtonProps> = React.memo(
 			backgroundColor,
 			borderColor,
 			textColor,
-			radius,
-			hoverShadow,
 			font,
 			descriptionFont,
+			shadowSize = '4px',
 		} = styles;
 
 		const cssVariables = useMemo(() => {
@@ -21,9 +20,7 @@ const SplitButton: React.FC<SplitButtonProps> = React.memo(
 				'--background-color': backgroundColor,
 				'--border-color': borderColor,
 				'--text-color': textColor,
-				'--radius': radius || '6px',
-				'--hover-shadow':
-					hoverShadow || '5px 5px 25px -5px rgba(35, 60, 80, 0.3) inset',
+				'--shadow-size': shadowSize,
 			};
 		}, []) as React.CSSProperties;
 

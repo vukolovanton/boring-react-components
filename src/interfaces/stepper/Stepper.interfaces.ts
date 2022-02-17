@@ -15,7 +15,7 @@ export interface StepperProps {
 
 export interface Step {
 	title: string;
-	description: string;
+	description?: string;
 }
 
 export enum STEPPER_VARIANT {
