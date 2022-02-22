@@ -63,4 +63,4 @@ const SplitButton: React.FC<SplitButtonProps> = React.memo(
 	}
 );
 
-export { SplitButton };
+export default SplitButton;

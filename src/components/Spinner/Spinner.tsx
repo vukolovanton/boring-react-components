@@ -15,4 +15,4 @@ const Spinner: React.FC<SpinnerProps> = ({ styles = {} }) => {
 	return <div className={style['spinner']} style={cssVariables}></div>;
 };
 
-export { Spinner };
+export default Spinner;

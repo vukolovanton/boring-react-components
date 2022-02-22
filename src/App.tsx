@@ -1,8 +1,9 @@
-import { Stepper } from '@/components/Stepper';
-import { SplitButton } from '@/components/SplitButton';
+import Stepper from '@/components/Stepper';
+import SplitButton from '@/components/SplitButton';
+import Spinner from '@/components/Spinner';
+import ProgressBar from '@/components/ProgressBar';
+import Toggle from '@/components/Toggle';
 import { SplitButtonItems } from '@/interfaces/splitButton/SplitButton.interfaces';
-import { Spinner } from './components/Spinner';
-import { ProgressBar } from './components/ProgressBar';
 
 const steps = [
 	{
@@ -55,31 +56,7 @@ const splitButtonItems: SplitButtonItems[] = [
 function App() {
 	return (
 		<div>
-			<Stepper steps={steps} options={{ completedSteps: [0, 1] }} />
-			<SplitButton
-				items={splitButtonItems}
-				styles={{
-					backgroundColor: '#d97c1e',
-					borderColor: 'black',
-					textColor: 'black',
-					font: '14px Helvetica',
-					descriptionFont: '10px Helvetica',
-				}}
-			/>
-			<Spinner
-				styles={{
-					color: '#ed5e42',
-					size: '12px',
-				}}
-			/>
-			<ProgressBar
-				styles={{
-					color: '#24ad37',
-					backgroundColor: 'rgba(0, 0, 0, 0.1)',
-					width: '20%',
-					speed: '3s',
-				}}
-			/>
+			<Toggle />
 		</div>
 	);
 }

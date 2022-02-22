@@ -95,4 +95,4 @@ const Stepper: FC<StepperProps> = ({ steps, options, styles = {} }) => {
 	);
 };
 
-export { Stepper };
+export default Stepper;

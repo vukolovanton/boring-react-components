@@ -1,6 +1,13 @@
-import { Stepper } from '@/components/Stepper';
-import { SplitButton } from '@/components/SplitButton';
-import { Spinner } from './components/Spinner';
-import { ProgressBar } from './components/ProgressBar';
+import Stepper from '@/components/Stepper';
+import SplitButton from '@/components/SplitButton';
+import Spinner from '@/components/Spinner';
+import ProgressBar from '@/components/ProgressBar';
+import Toggle from '@/components/Toggle';
 
-export { Stepper, SplitButton, Spinner, ProgressBar };
+module.exports = {
+	Stepper,
+	SplitButton,
+	Spinner,
+	ProgressBar,
+	Toggle,
+};
